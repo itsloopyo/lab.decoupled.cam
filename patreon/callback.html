@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Lab · connecting to Patreon</title>
+<meta name="robots" content="noindex" />
+<meta name="theme-color" content="#0c0b10" />
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+
+<main class="card-screen">
+  <div class="mini-card">
+    <img class="mark" src="/favicon.png" alt="" width="46" height="46" />
+    <div class="spinner" id="spinner"></div>
+    <h1 id="title">Returning to Lab…</h1>
+    <p id="msg">Hand-off in progress. If nothing happens within a few seconds you can close this tab and try again from the app.</p>
+  </div>
+</main>
+
+<script>
+// OAuth redirect target for the desktop app's Patreon flow. We never see
+// the access token here; we take the authorization `code` + `state`
+// from Patreon's redirect and forward them into the `lab://` deep link
+// so the desktop app can finish the exchange (which needs the
+// client_secret held by the broker worker).
+(function () {
+  const params = new URLSearchParams(window.location.search);
+  const code = params.get("code");
+  const state = params.get("state");
+  const error = params.get("error");
+  const errorDescription = params.get("error_description");
+
+  const title = document.getElementById("title");
+  const msg = document.getElementById("msg");
+  const spinner = document.getElementById("spinner");
+  const stop = () => spinner && spinner.classList.add("hidden");
+
+  const escapeHtml = (s) => s.replace(/[&<>"']/g, (c) =>
+    ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+
+  if (error) {
+    stop();
+    title.textContent = "Patreon hand-off failed";
+    title.classList.add("err");
+    msg.innerHTML = "Patreon returned <code>" + escapeHtml(error) + "</code>" +
+      (errorDescription ? ": " + escapeHtml(errorDescription) : "") +
+      ". Try again from the app.";
+    return;
+  }
+  if (!code || !state) {
+    stop();
+    title.textContent = "Missing code or state";
+    title.classList.add("err");
+    msg.textContent = "Open this page from Lab's Connect Patreon button.";
+    return;
+  }
+
+  const deepLink = "lab://patreon-callback" +
+    "?code=" + encodeURIComponent(code) +
+    "&state=" + encodeURIComponent(state);
+  // Trigger the protocol hand-off. The link below is the manual fallback.
+  window.location.replace(deepLink);
+
+  setTimeout(function () {
+    stop();
+    msg.innerHTML = "If Lab didn't reopen automatically, " +
+      "<a href=\"" + deepLink + "\">click here to return to the app</a>.";
+  }, 1400);
+})();
+</script>
+</body>
+</html>

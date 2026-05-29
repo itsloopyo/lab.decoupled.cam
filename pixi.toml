@@ -1,0 +1,12 @@
+[workspace]
+name = "lab.decoupled.cam"
+description = "Marketing + supporter site for Lab (the Directed Coding workbench)"
+channels = ["conda-forge"]
+platforms = ["win-64", "linux-64", "osx-64", "osx-arm64"]
+
+[dependencies]
+python = ">=3.11"
+
+[tasks.dev]
+cmd = "python scripts/serve.py"
+description = "Serve the site at http://localhost:4173 with GitHub-Pages-style clean URLs, and open it in your browser"

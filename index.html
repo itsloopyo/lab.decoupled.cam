@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Lab: a workbench for directing a fleet of coding agents</title>
+<meta name="description" content="Lab is a desktop workbench for Directed Coding: run Claude Code and Codex across all your repos at once, review and ship their work, from one console." />
+<meta property="og:title" content="Lab: Directed Coding workbench" />
+<meta property="og:description" content="Direct a fleet of AI coding agents across every repo you own, from one desktop console." />
+<meta property="og:image" content="https://lab.decoupled.cam/icon.png" />
+<meta property="og:type" content="website" />
+<meta name="theme-color" content="#0c0b10" />
+<link rel="icon" type="image/png" href="favicon.png" />
+<link rel="apple-touch-icon" href="favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@300;400;500;600;700&family=Spline+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="mast-row">
+    <a href="index.html" class="mast-brand">
+      <img src="favicon.png" alt="" width="24" height="24" />
+      <span>Lab</span>
+    </a>
+    <nav class="mast-nav" aria-label="Primary">
+      <a href="#what"><i>01</i>What</a>
+      <a href="#how"><i>02</i>How</a>
+      <a href="#get"><i>03</i>Get it</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero" id="top">
+  <div class="hero-copy">
+    <p class="rubric"><span class="tick"></span>Agentic control plane · The missing layer</p>
+    <h1>A control room.<span class="accent">Not a chat box.</span></h1>
+    <p class="standfirst">
+      Lab is the console for <b>directing a fleet of coding agents</b> (Claude Code
+      and Codex) across every repo you own. Fan composite workflows out to groups
+      of projects, every agent live in its own session, and <b>Lab pings you only when one
+      needs your judgment</b>. Shut it down and open it tomorrow; <b>every session comes back
+      exactly where you left it</b>.
+    </p>
+    <div class="hero-actions">
+      <a class="action" href="#get">Get Lab</a>
+      <a class="action ghost" href="#what">See how it works</a>
+    </div>
+  </div>
+
+  <div class="hero-stagewrap">
+    <div class="stage" id="stage">
+      <canvas id="scene" aria-hidden="true"></canvas>
+      <div class="stage-frame"></div>
+      <div class="stage-tag"><span>DIRECTOR</span> · <b id="t-live">running</b></div>
+      <div class="stage-readout" id="t-readout">all clear</div>
+    </div>
+  </div>
+</section>
+
+<section class="what" id="what">
+  <div class="sec-head">
+    <p class="kicker"><span class="idx">01</span> What it is</p>
+    <h2 class="section-title">One console for every repo and every agent.</h2>
+  </div>
+
+  <div class="prose-grid">
+    <div class="prose-col">
+      <p>Lab is a workbench, not a chat box. You open it and see every project you work on as a card. Behind each card is a real working tree, a git remote, and (when you want one) a live coding agent in its own terminal session.</p>
+      <p>It runs the agents you already use: <b>Claude Code</b> and <b>Codex</b>, each in its own PTY with full scrollback, drag-and-drop file context, and saved prompts a keystroke away. Spin up a side session to explore while the main one keeps working.</p>
+      <p>The leverage is in the <b>fan-out</b>. Write a macro once and run it across ten checkouts at a time, with a concurrency cap so your machine stays usable. When the work lands, Lab stages, commits, and pushes, then watches the GitHub Actions run that follows.</p>
+      <p>This is <b>Directed Coding</b>: you direct a crew of agents the way a film director directs a set (supervisory and intentional) instead of hand-typing every line into a single conversation.</p>
+    </div>
+    <aside class="readout" aria-label="At a glance">
+      <p class="readout-kicker">SYS / SPEC</p>
+      <dl>
+        <div><dt>Platform</dt><dd>macOS · Windows · Linux</dd></div>
+        <div><dt>Agents</dt><dd>Claude Code · Codex · CLI</dd></div>
+        <div><dt>Scope</dt><dd>All your repos</dd></div>
+        <div><dt>Updates</dt><dd>Signed · automatic</dd></div>
+        <div><dt>Access</dt><dd class="hl">Patreon supporters</dd></div>
+      </dl>
+    </aside>
+  </div>
+</section>
+
+<section class="how" id="how">
+  <div class="sec-head">
+    <p class="kicker"><span class="idx">02</span> How you direct</p>
+    <h2 class="section-title">Brief the fleet. Watch it work. Ship what's good.</h2>
+  </div>
+
+  <ol class="steps">
+    <li>
+      <span class="step-no">01 · BRIEF</span>
+      <h3 class="step-title">Hand out the work</h3>
+      <p>Fire a saved prompt or a macro at one project or fan it across many. Each repo gets its own agent session, rooted in its own checkout, running in parallel under a cap you set.</p>
+    </li>
+    <li>
+      <span class="step-no">02 · DIRECT</span>
+      <h3 class="step-title">Stay in the loop</h3>
+      <p>Every session is live and interactive: jump in, nudge, course-correct, drop in a file for context. Lab pings you the moment an agent is waiting on you, so you direct the ones that need it.</p>
+    </li>
+    <li>
+      <span class="step-no">03 · SHIP</span>
+      <h3 class="step-title">Review, commit, push</h3>
+      <p>Read the diff, stage and commit with one click, push, and watch the CI run that follows, across all the repos you touched, without leaving the console.</p>
+    </li>
+  </ol>
+</section>
+
+<section class="download" id="get">
+  <div class="sec-head">
+    <p class="kicker"><span class="idx">03</span> Get it</p>
+    <h2 class="section-title">Built in the open with supporters.</h2>
+  </div>
+
+  <div class="download-row">
+    <div class="download-text">
+      <p>Lab is funded on Patreon and delivered to supporters. Back the project and you get the app for macOS, Windows, and Linux, plus <b>signed automatic updates</b> as it grows, and you're directly shaping what gets built next.</p>
+      <p class="small">Every update is cryptographically signed and verified before it installs. When your pledge is active, updates flow automatically; if you ever step away, the version you have keeps working; nothing is clawed back.</p>
+    </div>
+    <div class="download-card">
+      <p class="tiers">Supporter access</p>
+      <p class="price">Back it on <b>Patreon</b></p>
+      <div class="download-cta">
+        <a class="action" href="https://patreon.com/itsloopyo" target="_blank" rel="noopener">Become a supporter</a>
+        <a class="action plain" href="download.html">I'm a supporter: download</a>
+      </div>
+      <div class="platforms">
+        <span>macOS</span><span>Windows</span><span>Linux</span>
+      </div>
+      <p class="note">Connect Patreon once inside Lab and updates take care of themselves. Your account tokens stay in your OS keychain, never on our servers.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="colophon">
+  <div class="colo-grid">
+    <div class="colo-cell">
+      <p class="colo-label">Lab</p>
+      <p>A desktop workbench for Directed Coding: directing a fleet of AI coding agents across all the repositories you own, from one console.</p>
+    </div>
+    <div class="colo-cell">
+      <p class="colo-label">Find me</p>
+      <ul>
+        <li><a href="https://patreon.com/itsloopyo" target="_blank" rel="noopener">Patreon</a></li>
+        <li><a href="https://bsky.app/profile/itsloopyo.bsky.social" target="_blank" rel="noopener">Bluesky · @itsloopyo</a></li>
+        <li><a href="https://github.com/itsloopyo" target="_blank" rel="noopener">GitHub</a></li>
+      </ul>
+    </div>
+    <div class="colo-cell">
+      <p class="colo-label">Legal</p>
+      <ul>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="terms.html">Terms</a></li>
+        <li><a href="eula.html">EULA</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <p class="disclaimer">
+    Lab is an independent tool built by one developer. It is not affiliated with, endorsed by, or sponsored by Anthropic, OpenAI, GitHub, Patreon, or any other company whose products it can drive. Lab orchestrates coding agents and developer tools that you supply and configure; your use of those agents and the code they produce remains your responsibility. All trademarks belong to their respective owners.
+  </p>
+
+  <p class="copyline">© 2026 itsloopyo · <span>Built for builders.</span></p>
+</footer>
+
+<script>
+/* ============================================================
+   Hero: "Director Mode".
+   The real shape of the app, abstracted. One workflow node on the
+   left fires work out to a fleet of agent sessions (one per repo),
+   bounded by a concurrency cap, so a few run at once while the rest
+   wait queued. Each session carries a live status, exactly like the
+   app's Activity feed: teal "working", and (the headline) an amber
+   "needs attention" that pulses and pings a request back to you. You
+   answer, it resolves, the slot frees, the next session dispatches.
+   The readout mirrors the app's own line: "N running · M need you".
+   Pure Canvas2D, rAF, pauses off-screen, static for reduced-motion.
+   ============================================================ */
+(function () {
+  const canvas = document.getElementById("scene");
+  const stage = document.getElementById("stage");
+  const liveEl = document.getElementById("t-live");
+  const readoutEl = document.getElementById("t-readout");
+  if (!canvas || !stage) return;
+  const ctx = canvas.getContext("2d");
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const C = {
+    lineSoft: "rgba(236,230,220,0.045)",
+    ember: "#ff7d4d", emberHi: "#ff9b6a", live: "#5fe3cb", bone: "#ece6dc", muted: "#7a7385",
+  };
+  // the fleet: one live session per repo
+  const REPOS = ["api", "web-app", "cli", "infra", "sdk", "docs"];
+  const CAP = 4; // concurrency cap: at most this many sessions run at once
+
+  let W = 0, H = 0, dpr = 1;
+  let origin = { x: 0, y: 0 };
+  let sessions = [];
+  let lastDispatchAt = -1e9;
+
+  function build() {
+    origin = { x: W * 0.12, y: H * 0.5 };
+    const n = REPOS.length;
+    const pad = H * 0.10, span = H - pad * 2;
+    const sx = W * 0.46;
+    sessions = REPOS.map((name, i) => ({
+      name,
+      x: sx,
+      y: pad + (span * (i + 0.5)) / n,
+      state: "queued",         // queued → working → (needs → working) → done → queued
+      since: -1500 - i * 250,  // staggered so dispatch doesn't fire in lockstep
+      dispatchedAt: -1e9,       // drives the outbound dispatch pulse
+      pingAt: -1e9,             // drives the inbound "needs you" ping
+      dur: 0, raiseNeeds: false, needsAt: 0, needsHold: 0,
+    }));
+  }
+
+  function resize() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = stage.clientWidth; H = stage.clientHeight;
+    canvas.width = W * dpr; canvas.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    build();
+    if (reduce) staticFrame();
+  }
+
+  const ease = (t) => t * t * (3 - 2 * t);
+
+  // point along the cubic bezier used to stroke an edge (same control pts)
+  function edgePoint(x0, y0, x1, y1, t) {
+    const dx = (x1 - x0) * 0.5;
+    const cx1 = x0 + dx, cx2 = x1 - dx;
+    const u = 1 - t, a = u * u * u, b = 3 * u * u * t, c = 3 * u * t * t, d = t * t * t;
+    return [a * x0 + b * cx1 + c * cx2 + d * x1, a * y0 + b * y0 + c * y1 + d * y1];
+  }
+
+  function edge(x0, y0, x1, y1, stops, lw) {
+    const dx = (x1 - x0) * 0.5;
+    const g = ctx.createLinearGradient(x0, 0, x1, 0);
+    g.addColorStop(0, stops[0]); g.addColorStop(1, stops[1]);
+    ctx.strokeStyle = g; ctx.lineWidth = lw;
+    ctx.beginPath();
+    ctx.moveTo(x0, y0);
+    ctx.bezierCurveTo(x0 + dx, y0, x1 - dx, y1, x1, y1);
+    ctx.stroke();
+  }
+
+  // a travelling dot: teal for work going out, amber for a ping coming back
+  function pulse(x, y, kind) {
+    const halo = kind === "amber" ? "rgba(255,155,106,0.22)" : "rgba(95,227,203,0.18)";
+    const core = kind === "amber" ? C.emberHi : C.live;
+    ctx.fillStyle = halo; ctx.beginPath(); ctx.arc(x, y, 6, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = core; ctx.beginPath(); ctx.arc(x, y, 2.6, 0, Math.PI * 2); ctx.fill();
+  }
+
+  function roundRect(x, y, w, h, r) {
+    ctx.beginPath();
+    ctx.moveTo(x + r, y);
+    ctx.arcTo(x + w, y, x + w, y + h, r);
+    ctx.arcTo(x + w, y + h, x, y + h, r);
+    ctx.arcTo(x, y + h, x, y, r);
+    ctx.arcTo(x, y, x + w, y, r);
+    ctx.closePath();
+  }
+
+  // advance the per-session state machine + dispatch queued work under the cap
+  function step(now) {
+    for (const s of sessions) {
+      if (s.state === "working") {
+        if (s.raiseNeeds && now >= s.needsAt) {
+          s.state = "needs"; s.since = now; s.pingAt = now; s.raiseNeeds = false;
+        } else if (now - s.since >= s.dur) {
+          s.state = "done"; s.since = now;
+        }
+      } else if (s.state === "needs") {
+        // you answered the ping → it goes back to work and finishes soon
+        if (now - s.since >= s.needsHold) { s.state = "working"; s.since = now; s.dur = 700 + Math.random() * 500; }
+      } else if (s.state === "done") {
+        if (now - s.since >= 1100) { s.state = "queued"; s.since = now; }
+      }
+    }
+
+    let active = 0;
+    for (const s of sessions) if (s.state === "working" || s.state === "needs") active++;
+    if (active < CAP && now - lastDispatchAt > 360) {
+      const next = sessions.find((s) => s.state === "queued" && now - s.since > 500);
+      if (next) {
+        next.state = "working"; next.since = now; next.dispatchedAt = now;
+        next.dur = 2600 + Math.random() * 2600;
+        next.raiseNeeds = Math.random() < 0.5;
+        next.needsAt = now + next.dur * (0.28 + Math.random() * 0.3);
+        next.needsHold = 1300 + Math.random() * 1100;
+        lastDispatchAt = now;
+      }
+    }
+  }
+
+  function drawWorkflow(now, needs) {
+    const x = origin.x, y = origin.y;
+    const k = (Math.sin(now * 0.006) + 1) / 2;
+    // the director node glows harder while a session is calling for you
+    const glow = needs > 0 ? 0.18 + k * 0.18 : 0.12;
+    ctx.fillStyle = "rgba(255,125,77," + glow + ")";
+    ctx.beginPath(); ctx.arc(x, y, needs > 0 ? 16 + k * 4 : 14, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = C.ember; roundRect(x - 6, y - 6, 12, 12, 3); ctx.fill();
+    ctx.fillStyle = C.muted;
+    ctx.font = "600 9px 'Spline Sans Mono', monospace";
+    ctx.textAlign = "center"; ctx.textBaseline = "top";
+    ctx.fillText("WORKFLOW", x, y + 13);
+    ctx.textAlign = "start"; ctx.textBaseline = "middle";
+  }
+
+  function drawSession(s, now) {
+    const x = s.x, y = s.y;
+    let dotCol = null, statusTxt, statusCol;
+    if (s.state === "working") {
+      const r = 6 + (Math.sin(now * 0.005 + y) + 1) * 1.2;
+      ctx.fillStyle = "rgba(95,227,203,0.13)";
+      ctx.beginPath(); ctx.arc(x, y, r + 2, 0, Math.PI * 2); ctx.fill();
+      dotCol = C.live; statusTxt = "working"; statusCol = "rgba(95,227,203,0.85)";
+    } else if (s.state === "needs") {
+      const k = (Math.sin(now * 0.011) + 1) / 2;
+      ctx.fillStyle = "rgba(255,155,106," + (0.16 + k * 0.22) + ")";
+      ctx.beginPath(); ctx.arc(x, y, 9 + k * 4, 0, Math.PI * 2); ctx.fill();
+      ctx.strokeStyle = "rgba(255,125,77," + (0.5 + k * 0.4) + ")"; ctx.lineWidth = 1.4;
+      ctx.beginPath(); ctx.arc(x, y, 7 + k * 3, 0, Math.PI * 2); ctx.stroke();
+      dotCol = C.emberHi; statusTxt = "needs attention"; statusCol = C.emberHi;
+    } else if (s.state === "done") {
+      const k = Math.max(0, 1 - (now - s.since) / 1100);
+      ctx.fillStyle = "rgba(236,230,220," + (k * 0.22) + ")";
+      ctx.beginPath(); ctx.arc(x, y, 6 + (1 - k) * 6, 0, Math.PI * 2); ctx.fill();
+      dotCol = "rgba(236,230,220," + (0.4 + k * 0.5) + ")"; statusTxt = "done"; statusCol = "rgba(122,115,133,0.9)";
+    } else {
+      statusTxt = "queued"; statusCol = "rgba(122,115,133,0.7)";
+    }
+
+    if (dotCol) {
+      ctx.fillStyle = dotCol; ctx.beginPath(); ctx.arc(x, y, 4, 0, Math.PI * 2); ctx.fill();
+    } else {
+      ctx.strokeStyle = "rgba(122,115,133,0.55)"; ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.arc(x, y, 3.4, 0, Math.PI * 2); ctx.stroke();
+    }
+
+    ctx.textBaseline = "middle";
+    ctx.fillStyle = s.state === "queued" ? "rgba(236,230,220,0.45)" : C.bone;
+    ctx.font = "600 11px 'Spline Sans Mono', monospace";
+    ctx.fillText(s.name, x + 12, y - 0.5);
+    ctx.fillStyle = statusCol;
+    ctx.font = "500 8.5px 'Spline Sans Mono', monospace";
+    ctx.fillText(statusTxt, x + 12, y + 11);
+  }
+
+  function draw(now) {
+    ctx.clearRect(0, 0, W, H);
+
+    // edges workflow → each session; live ones carry a hint of ember
+    for (const s of sessions) {
+      const live = s.state === "working" || s.state === "needs";
+      edge(origin.x, origin.y, s.x, s.y,
+        live ? ["rgba(255,125,77,0.22)", C.lineSoft] : [C.lineSoft, C.lineSoft],
+        live ? 1 : 0.8);
+    }
+
+    if (!reduce) step(now);
+
+    // travelling pulses: dispatch out (teal), "needs you" ping back (amber)
+    let working = 0, needs = 0;
+    for (const s of sessions) {
+      if (s.state === "working") working++;
+      if (s.state === "needs") needs++;
+      const dp = (now - s.dispatchedAt) / 700;
+      if (dp >= 0 && dp < 1) {
+        const [x, y] = edgePoint(origin.x, origin.y, s.x, s.y, ease(dp));
+        pulse(x, y, "live");
+      }
+      const pp = (now - s.pingAt) / 900;
+      if (pp >= 0 && pp < 1) {
+        const [x, y] = edgePoint(s.x, s.y, origin.x, origin.y, ease(pp));
+        pulse(x, y, "amber");
+      }
+    }
+
+    drawWorkflow(now, needs);
+    for (const s of sessions) drawSession(s, now);
+
+    if (liveEl) liveEl.textContent = working + " running";
+    if (readoutEl) {
+      if (needs > 0) readoutEl.innerHTML = "<em>" + needs + "</em> need" + (needs === 1 ? "s" : "") + " you";
+      else readoutEl.textContent = "all clear";
+    }
+  }
+
+  // representative still for prefers-reduced-motion: a fleet mid-flight
+  // with one session calling for attention
+  function staticFrame() {
+    const set = (i, state, since) => { if (sessions[i]) { sessions[i].state = state; sessions[i].since = since; } };
+    set(0, "working", 0); set(1, "needs", 0); set(2, "working", 0);
+    set(3, "done", -550); set(4, "queued", 0); set(5, "working", 0);
+  }
+
+  let raf = null, visible = true;
+  function frame(t) { draw(t); if (!reduce && visible) raf = requestAnimationFrame(frame); }
+  function startLoop() { if (!raf && !reduce && visible) raf = requestAnimationFrame(frame); }
+  function stopLoop() { if (raf) { cancelAnimationFrame(raf); raf = null; } }
+
+  resize();
+  window.addEventListener("resize", () => { resize(); if (reduce) draw(0); }, { passive: true });
+
+  if (reduce) {
+    staticFrame(); draw(0);
+  } else {
+    // pause when the hero scrolls out of view
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver((entries) => {
+        visible = entries[0].isIntersecting;
+        if (visible) startLoop(); else stopLoop();
+      }, { threshold: 0 }).observe(stage);
+    }
+    startLoop();
+  }
+})();
+</script>
+
+</body>
+</html>

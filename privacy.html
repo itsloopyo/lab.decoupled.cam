@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Privacy · Lab</title>
+<meta name="description" content="Lab's privacy policy. Short version: it runs on your machine and we don't collect your data." />
+<meta name="theme-color" content="#0c0b10" />
+<link rel="icon" type="image/png" href="favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@300;400;500;600;700&family=Spline+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="masthead">
+  <div class="mast-row">
+    <a href="index.html" class="mast-brand">
+      <img src="favicon.png" alt="" width="22" height="22" />
+      <span>Lab</span>
+    </a>
+    <nav class="mast-nav">
+      <a href="index.html#what">What</a>
+      <a href="index.html#how">How</a>
+      <a href="index.html#get">Get it</a>
+    </nav>
+  </div>
+</header>
+
+<main class="legal">
+  <p class="rubric">Privacy policy</p>
+  <h1>Privacy policy</h1>
+  <p class="stamp">Last updated 29 May 2026</p>
+
+  <p class="summary">The short version: Lab is built by one person who does not want your data. The app runs on your machine and does not phone home. This website does not track you. The only personal data we ever touch is the Patreon identity you choose to connect, used solely to confirm you're an active supporter so the app can update itself.</p>
+
+  <h2>Who runs this</h2>
+  <p>Lab and lab.decoupled.cam are operated by an individual developer publishing under the <strong>itsloopyo</strong> handle. Contact: Bluesky <a href="https://bsky.app/profile/itsloopyo.bsky.social" target="_blank" rel="noopener">@itsloopyo</a>, or <a href="mailto:legal@decoupled.cam">legal@decoupled.cam</a>.</p>
+
+  <h2>What the Lab desktop app collects</h2>
+  <p>Nothing about you, personally, is sent to us. The app runs entirely on your machine. On your machine it reads and writes:</p>
+  <ul>
+    <li>Your local filesystem: the project directories you point it at, and its own settings file.</li>
+    <li>Your local git repositories and the GitHub remotes you configure, accessed over HTTPS using a personal access token <strong>you</strong> supply. That token is stored in your operating system's keychain and sent only to GitHub.</li>
+    <li>The coding-agent command-line tools you have installed (for example Claude Code or Codex), which Lab launches in local terminal sessions on your behalf.</li>
+  </ul>
+  <p>Lab sends no analytics, telemetry, crash reports, or usage metrics to any server operated by us.</p>
+
+  <h2>The coding agents Lab runs</h2>
+  <p>Lab is a workbench that <em>launches</em> AI coding agents you have installed; it does not host or proxy them. When you run an agent through Lab, your prompts, code, and files are sent by that agent to <strong>its own provider</strong> (for example Anthropic or OpenAI) under <strong>that provider's</strong> terms and privacy policy, using credentials you configured with them. That data path is between you and the provider you chose; Lab neither stores nor forwards it to us.</p>
+
+  <h2>What this website collects</h2>
+  <p>This site is a plain static page hosted on GitHub Pages. No analytics, no advertising, no A/B testing, no behavioural tracking.</p>
+  <p>Your browser exchanges standard request metadata (IP address, user-agent, requested URL) with the hosting and delivery providers in order to serve the page and any gated download. Those logs are managed by the providers; see <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub's privacy statement</a> and <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Cloudflare's privacy policy</a>.</p>
+
+  <h2>Cookies</h2>
+  <p>None. The site sets no cookies and uses no persistent local storage. The supporter download flow holds your Patreon access token only in the memory of the open browser tab, and only for as long as that tab is open.</p>
+
+  <h2>The Patreon integration and updates</h2>
+  <p>Access to Lab and its automatic updates is for active Patreon supporters. To make that work, the app (or this site's download page) asks you to sign in with Patreon. The authorization code from that sign-in is exchanged for an access token by a small Cloudflare Worker we operate, which holds the OAuth client secret. That worker, and the app, query Patreon's API for one thing: <strong>whether you are an active patron of the Lab campaign, and at what tier.</strong> Your email, payment details, and anything else Patreon holds are not requested and not stored by us.</p>
+  <p>The resulting tokens are stored in your operating system's keychain on your own machine. A token-free summary (your display name and supporter tier) is cached locally so the app can show your status. Software downloads and updates are served from Cloudflare R2 through that same worker, which checks your supporter status before issuing a short-lived, single-use download link.</p>
+  <p>The lawful basis under UK GDPR for processing your Patreon identifier and supporter status is your <strong>consent</strong>, given when you connect your Patreon account. You may withdraw consent at any time by disconnecting the account in Lab's settings; this deletes the locally stored tokens and ends the eligibility check.</p>
+
+  <h2>Third parties we touch</h2>
+  <ul>
+    <li><strong>GitHub</strong>. Source hosting, releases, and static site hosting.</li>
+    <li><strong>Cloudflare</strong>. The OAuth worker and the R2 bucket that stores signed app builds for supporter downloads.</li>
+    <li><strong>Patreon</strong>. Supporter sign-in and status, only if you choose to connect it.</li>
+    <li><strong>Google Fonts</strong>. Typefaces loaded from fonts.googleapis.com; Google receives standard request data when your browser fetches the font files.</li>
+    <li><strong>Your chosen AI providers</strong> (e.g. Anthropic, OpenAI). Reached directly by the agents you run, under their own terms, not by us.</li>
+  </ul>
+  <p>No data is shared with any of these parties beyond the technical minimum required to deliver the page, the download, or the supporter check.</p>
+
+  <h2>Your rights</h2>
+  <p>Under UK GDPR you have the right to request access to, correction of, or deletion of personal data we hold about you, to object to or restrict its processing, and to data portability where it applies. Because we keep no user database, there is usually nothing to act on; the only identifier we touch (your Patreon supporter status) is read live and not retained on our servers. If you have messaged us and want that correspondence purged, contact us and it will be done.</p>
+  <p>You also have the right to lodge a complaint with the UK Information Commissioner's Office (ICO) at <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a> if you believe your data has been mishandled.</p>
+
+  <h2>Children</h2>
+  <p>Lab is a developer tool not directed at children under 13, and we do not knowingly collect information from them. If you believe a child has sent us information, contact us and it will be deleted.</p>
+
+  <h2>Changes</h2>
+  <p>If this policy ever changes in a way that meaningfully affects what we collect or how we use it, the "last updated" date above will move and the change will be noted in the project's release notes.</p>
+
+  <h2>Contact</h2>
+  <p>Questions, concerns, or requests (including UK GDPR data requests): email <a href="mailto:legal@decoupled.cam">legal@decoupled.cam</a>, or DM <a href="https://bsky.app/profile/itsloopyo.bsky.social" target="_blank" rel="noopener">@itsloopyo on Bluesky</a>.</p>
+
+  <a class="legal-back" href="index.html">← Back to lab.decoupled.cam</a>
+</main>
+
+</body>
+</html>

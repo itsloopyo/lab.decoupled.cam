@@ -1,0 +1,5 @@
+# Claude Code / agent scaffolding (machine-generated; authoritative sources live elsewhere)
+.claude/
+.lab/
+AGENTS.md
+CLAUDE.md
